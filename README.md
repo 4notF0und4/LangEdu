@@ -2,6 +2,30 @@
 
 Python proqramlaşdırmasını öyrədən sayt. Layihəni kiçik mərhələlərlə qururuq.
 
+## Mərhələ 2: İlk Python dərsi
+
+Ana səhifədə **İlk dərsə başla** keçidi `/python/ilk-proqram` səhifəsini açır.
+Səhifə `GET /api/lessons/ilk-proqram` sorğusu ilə dərsi NestJS-dən alır:
+Python haqqında giriş, `print()` izahı, kod nümunəsi və gözlənilən nəticə.
+Məzmun Azərbaycan dilindədir. Kod bu mərhələdə icra edilmir.
+
+Bu axında hissələrin vəzifələri:
+
+- `LessonsController`: URL-dən `slug` qəbul edir və service-i çağırır.
+- `LessonsService`: dərsi tapır; mövcud olmayan slug üçün HTTP 404 qaytarır.
+- `lessons.data.ts`: ilk dərsin müvəqqəti yaddaşdakı məzmunudur.
+- `packages/contracts` daxilində `Lesson`: API cavabının ortaq tipidir.
+- `apps/web/app/pages/python/[slug].vue`: məzmunu, yüklənmə və xəta vəziyyətlərini göstərir.
+
+`slug` dərsin URL-dəki oxunaqlı identifikatorudur: məsələn, `ilk-proqram`.
+Sonrakı mərhələdə məlumatın saxlanmasını PostgreSQL-ə keçirəcəyik.
+Məzmun Vue mətn interpolasiyası ilə göstərilir; API-dən HTML icra edilmir.
+Hazırda sorğu brauzerdən göndərilir. Dərs səhifələrinin SSR/SEO davranışını
+ictimai yayıma hazırlıq mərhələsində ayrıca işləyəcəyik.
+
+Brauzer testləri ana səhifədən keçidi, birbaşa açılışı, API məzmununu,
+yüklənməni, şəbəkə xətasından bərpanı və mövcud olmayan dərsi yoxlayır.
+
 ## Mərhələ 1: Nuxt → NestJS bağlantısı
 
 Bu mərhələnin nəticəsi: Nuxt səhifəsi brauzerdən NestJS-in
@@ -192,7 +216,7 @@ Brauzerdə `F12` → **Network** bölməsində `health` sorğusunun URL-ni,
 
 ### Növbəti kiçik mərhələlər
 
-1. Python haqqında səhifə və ilk dərsin frontend/API axını.
+1. Tamamlandı: Python haqqında məlumat və ilk dərsin frontend/API axını.
 2. PostgreSQL bağlantısı və dərslərin bazada saxlanması.
 3. CodeMirror və ayrıca sandbox-da Judge0 vasitəsilə nümunələrin icrası.
 4. Testlərlə yoxlanan tapşırıqlar, sonra quizlər.

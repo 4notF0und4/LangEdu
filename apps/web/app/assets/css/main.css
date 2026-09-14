@@ -42,6 +42,18 @@ button:hover:enabled { background: #34574b; }
 button:disabled { opacity: .6; cursor: wait; }
 footer { display: flex; justify-content: space-between; gap: 18px; padding: 25px 0; border-top: 1px solid #d9e0d6; color: #697663; font-size: 12px; }
 
+.lesson-link { display: inline-flex; gap: 24px; align-items: center; margin-top: 28px; padding: 12px 20px; border-radius: 10px; background: #203c35; color: #fffefb; font-weight: 600; }
+.lesson-link:hover { background: #34574b; }
+.lesson-main { display: block; max-width: 760px; margin: 0 auto; padding: 40px 0 64px; }
+.back-link { display: inline-block; margin-bottom: 32px; text-decoration: underline; text-underline-offset: 4px; }
+.lesson-title { font-size: clamp(30px, 5vw, 46px); letter-spacing: -1px; overflow-wrap: anywhere; }
+.lesson-summary { font-size: 18px; color: #5a685f; margin: 22px 0 36px; }
+.lesson-section { margin-top: 36px; }
+.lesson-section p { line-height: 1.85; }
+.lesson-section pre { font-size: 14px; }
+.lesson-section .response-label { margin-top: 16px; }
+.lesson-note { padding: 16px; border-left: 3px solid #6b8257; background: #edf1e6; font-size: 14px; }
+
 @media (max-width: 760px) {
   .page-shell { padding: 0 22px; }
   main { grid-template-columns: 1fr; gap: 36px; padding: 46px 0; }

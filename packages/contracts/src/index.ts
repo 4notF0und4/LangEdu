@@ -4,3 +4,19 @@ export interface HealthResponse {
   service: 'langedu-api';
   timestamp: string;
 }
+
+export interface Lesson {
+  slug: string;
+  language: 'python';
+  title: string;
+  summary: string;
+  sections: {
+    heading: string;
+    paragraphs: string[];
+  }[];
+  example: {
+    code: string;
+    expectedOutput: string;
+    explanation: string;
+  };
+}

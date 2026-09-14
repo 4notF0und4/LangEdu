@@ -31,8 +31,9 @@ const isHealthy = computed(() => status.value === 'success' && data.value?.statu
         <h1 id="page-title">Python ilə<br><span>ilk addımını at.</span></h1>
         <p class="intro-description">
           Proqramlaşdırmanı dərslər, kod nümunələri və praktik tapşırıqlarla öyrənəcəyin yer.
-          LangEdu-nu qurmağa başlayırıq.
+          İlk Python dərsinlə başla.
         </p>
+        <NuxtLink class="lesson-link" to="/python/ilk-proqram">İlk dərsə başla <span aria-hidden="true">→</span></NuxtLink>
       </section>
 
       <section class="health-card" aria-labelledby="health-title" :aria-busy="isChecking">
@@ -69,7 +70,7 @@ const isHealthy = computed(() => status.value === 'success' && data.value?.statu
 
     <footer>
       <span>LangEdu · Öyrənərək qururuq.</span>
-      <span>Növbəti addım: Python dərsləri</span>
+      <span>Python · İlk proqramın</span>
     </footer>
   </div>
 </template>
