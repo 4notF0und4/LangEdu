@@ -1,0 +1,17 @@
+node_modules/
+dist/
+.nuxt/
+.output/
+.data/
+.cache/
+.npm-cache/
+.env
+.env.*
+!.env.example
+*.log
+*.tsbuildinfo
+coverage/
+playwright-report/
+test-results/
+.DS_Store
+Thumbs.db

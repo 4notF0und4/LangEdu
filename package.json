@@ -1,0 +1,25 @@
+{
+  "name": "langedu",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": ["apps/*", "packages/*"],
+  "engines": { "node": ">=24.11.0 <25", "npm": ">=11" },
+  "packageManager": "npm@11.19.0",
+  "scripts": {
+    "predev": "node scripts/check-dev-ports.mjs",
+    "postinstall": "npm run build --workspace @langedu/contracts && npm run prepare --workspace @langedu/web",
+    "dev": "npm run build --workspace @langedu/contracts && concurrently --kill-others --names contracts,api,web \"npm:dev:contracts\" \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:contracts": "npm run dev --workspace @langedu/contracts",
+    "dev:api": "npm run dev --workspace @langedu/api",
+    "dev:web": "npm run dev --workspace @langedu/web",
+    "build": "npm run build --workspace @langedu/contracts && npm run build --workspace @langedu/api && npm run build --workspace @langedu/web",
+    "typecheck": "npm run build --workspace @langedu/contracts && npm run typecheck --workspaces",
+    "test:e2e": "npm run build --workspace @langedu/contracts && playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "^24.0.0",
+    "concurrently": "10.0.5",
+    "typescript": "~6.0.2"
+  }
+}
