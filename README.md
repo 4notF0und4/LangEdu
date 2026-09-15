@@ -7,7 +7,9 @@ bilik və öyrənmə platforması. İlk işlək texnologiya Python-dur.
 
 - `/`: axtarış və növ filtrləri olan texnologiya kataloqu.
 - `/python`: Python sahəsinin icmalı və öyrənmə istiqamətləri.
-- `/python/melumat`: əsas anlayışlar və səhifədaxili naviqasiyalı məlumat kitabçası.
+- `/python/melumat`: tarixçə, nəzəriyyə, ekosistem və rəsmi mənbələrə istinadlarla
+  ensiklopedik məlumat kitabçası. Ad və terminlər xarici resurslara, nömrəli
+  istinadlar səhifənin mənbə siyahısına aparır.
 - `/python/ilk-proqram`: PostgreSQL-dən gələn ilk dərs və kod nümunəsi.
 - `/python/praktika`: hazırlanmaqda olan kod icrası, tapşırıq və quiz imkanları.
 
@@ -22,6 +24,11 @@ edəndə texnologiya identifikatoru və texnologiya daxilində unikal dərs slug
 baza migrasiyası, API və contracts yenilənməlidir. Təkcə kataloqa kart əlavə
 etmək yeni dərs sahəsi yaratmır. Məlumat kitabçası hələ frontend məzmunudur.
 Praktikada kod icrası, avtomatik qiymətləndirmə və quizlər hələ aktiv deyil.
+
+Ensiklopediya mənbələri və mündəricatı `app/data/python-reference.ts` faylındadır.
+`PythonCitation.vue` mənbə identifikatorundan nömrəli keçid yaradır. Yeni fakt
+əlavə edəndə ilkin mənbəni yoxla, aid olduğu abzasda istinad göstər və məqalənin
+mənbə yoxlama tarixini yenilə. Bu məqalə dərs API-sindən ayrı redaksiya məzmunudur.
 
 Vercel üçün import ayarları, bulud bazası və deploy ardıcıllığı:
 [Vercel təlimatı](docs/vercel.md).
