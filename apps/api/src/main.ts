@@ -6,7 +6,6 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module.js';
 
 async function bootstrap(): Promise<void> {
-  // npm workspace əmrləri bu tətbiqin qovluğunda işləyir.
   if (existsSync('.env')) {
     loadEnvFile('.env');
   }

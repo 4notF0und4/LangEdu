@@ -14,7 +14,11 @@
     "dev:web": "npm run dev --workspace @langedu/web",
     "build": "npm run build --workspace @langedu/contracts && npm run build --workspace @langedu/api && npm run build --workspace @langedu/web",
     "typecheck": "npm run build --workspace @langedu/contracts && npm run typecheck --workspaces",
-    "test:e2e": "npm run build --workspace @langedu/contracts && playwright test"
+    "test:e2e": "npm run build --workspace @langedu/contracts && playwright test",
+    "db:configure": "node scripts/configure-database.mjs",
+    "db:migrate": "npm run db:migrate --workspace @langedu/api",
+    "db:seed": "npm run db:seed --workspace @langedu/api",
+    "test:db": "npm run build --workspace @langedu/contracts && npm run test:db --workspace @langedu/api"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0",

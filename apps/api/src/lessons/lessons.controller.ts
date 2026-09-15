@@ -7,7 +7,7 @@ export class LessonsController {
   constructor(private readonly lessonsService: LessonsService) {}
 
   @Get(':slug')
-  getLesson(@Param('slug') slug: string): Lesson {
+  getLesson(@Param('slug') slug: string): Promise<Lesson> {
     return this.lessonsService.findBySlug(slug);
   }
 }

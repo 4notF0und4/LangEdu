@@ -1,0 +1,29 @@
+[
+  {
+    "slug": "ilk-proqram",
+    "language": "python",
+    "title": "Python ilə ilk proqramın",
+    "summary": "Python ilə tanış ol və print() funksiyası ilə ilk mesajını yazdır.",
+    "sections": [
+      {
+        "heading": "Python nədir?",
+        "paragraphs": [
+          "Python oxunaqlı sintaksisi olan proqramlaşdırma dilidir. Onunla avtomatlaşdırma skriptləri, veb tətbiqlər və məlumatları emal edən proqramlar yaza bilərsən.",
+          "Proqram kompüterə verdiyimiz təlimatlardan ibarətdir. İlk proqramımız sadəcə bir mesajı çıxışa yazdıracaq."
+        ]
+      },
+      {
+        "heading": "print() necə işləyir?",
+        "paragraphs": [
+          "print() verilən dəyəri standart çıxışa yazdıran funksiyadır. Terminalda işləyərkən həmin nəticəni ekranda görürsən.",
+          "Mətni dırnaqların içində yazırıq. Python-da belə mətn dəyərinə sətir (string) deyilir. Mötərizələr isə funksiyaya hansı dəyəri ötürdüyümüzü göstərir."
+        ]
+      }
+    ],
+    "example": {
+      "code": "print(\"Salam, dünya!\")",
+      "expectedOutput": "Salam, dünya!",
+      "explanation": "Nəticədə dırnaqlar görünmür: onlar mətnin sərhədlərini göstərir. print() standart olaraq mesajın sonuna yeni sətir də əlavə edir."
+    }
+  }
+]
