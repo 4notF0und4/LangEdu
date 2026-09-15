@@ -145,11 +145,10 @@ yüklənməni, şəbəkə xətasından bərpanı və mövcud olmayan dərsi yoxl
 
 ## Mərhələ 1: Nuxt → NestJS bağlantısı
 
-Bu mərhələnin nəticəsi: Nuxt səhifəsi brauzerdən NestJS-in
-`GET http://localhost:3001/api/health` endpointinə sorğu göndərir,
-JSON cavabını və **“Bağlantı uğurludur”** yazısını göstərir.
-“Yenidən yoxla” düyməsi yeni sorğu göndərir. API əlçatan olmadıqda
-aydın xəta mesajı görünür; sorğu üçün gözləmə müddəti 5 saniyədir.
+İlk mərhələdə əlaqə `/api/health` vasitəsilə yoxlanılıb. Diaqnostika bloku
+artıq ana səhifədən çıxarılıb; ana səhifə istifadəçini ilk dərsə yönləndirir.
+Endpoint API-ni ayrıca yoxlamaq üçün saxlanılır. Brauzer → NestJS əlaqəsi
+dərs səhifəsində real məzmun sorğusu ilə yoxlanılır.
 
 ### Yoxlanmış mühit
 
@@ -243,7 +242,7 @@ importlarında `.js` uzantısı görəcəksən: build zamanı `.ts` faylları `.
 olur və Node.js həmin çıxış fayllarını işlədir.
 
 **Contracts** API cavabının formasını təsvir edir. Hər iki tətbiq
-`import type { HealthResponse } from '@langedu/contracts'` istifadə edir.
+`import type { Lesson } from '@langedu/contracts'` istifadə edir.
 Paket yalnız `.d.ts` tip faylları yaradır; icra olunan kod saxlamır.
 TypeScript tipləri proqram yazarkən kömək edir, şəbəkədən gələn məlumatı
 icra zamanı avtomatik yoxlamır. Sonrakı mərhələdə giriş məlumatlarına
@@ -261,13 +260,13 @@ Sorğunun yolu:
 
 ```text
 Brauzerdə Nuxt səhifəsi
-  → GET http://localhost:3001/api/health
-  → NestJS HealthController
-  → HealthResponse şəklində JSON
-  → Nuxt səhifəsində status və cavab
+  → GET http://localhost:3001/api/lessons/ilk-proqram
+  → NestJS LessonsController → PostgreSQL
+  → Lesson şəklində JSON
+  → Nuxt səhifəsində dərs məzmunu
 ```
 
-Nümunə cavab (`timestamp` hər sorğuda yenilənir):
+Ayrıca `/api/health` endpointinin nümunə cavabı (`timestamp` hər sorğuda yenilənir):
 
 ```json
 {
@@ -317,8 +316,8 @@ npm.cmd run test:e2e
 
 - `typecheck`: bütün workspace-lərin TypeScript uyğunluğu.
 - `build`: contracts, NestJS və Nuxt-un build-i.
-- `test:e2e`: brauzerdən real HTTP 200 cavabı, CORS, JSON-un göstərilməsi,
-  düymə ilə təkrar sorğu, şəbəkə xətası və bağlantının bərpası.
+- `test:e2e`: API health cavabı, ana səhifədən dərsə keçid, real dərs məzmunu,
+  şəbəkə xətasından sonra təkrar cəhd və mövcud olmayan dərs üçün 404 davranışı.
 
 Brauzer testləri standart portlardan istifadə edir və lazım olsa serverləri
 özləri başladır. Windows-da quraşdırılmış Microsoft Edge istifadə olunur.
@@ -332,7 +331,7 @@ API-ni ayrıca yoxlamaq üçün:
 Invoke-RestMethod http://localhost:3001/api/health
 ```
 
-Brauzerdə `F12` → **Network** bölməsində `health` sorğusunun URL-ni,
+Dərs səhifəsində `F12` → **Network** bölməsində `ilk-proqram` sorğusunun URL-ni,
 `200` statusunu və JSON cavabını görmək olar.
 
 ### Növbəti kiçik mərhələlər
