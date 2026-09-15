@@ -6,7 +6,6 @@
   "scripts": {
     "predev": "node ../../scripts/check-dev-ports.mjs 3000",
     "dev": "nuxt dev --host localhost --port 3000",
-    "prebuild": "node ../../scripts/check-web-deploy.mjs",
     "build": "nuxt build",
     "start": "node .output/server/index.mjs",
     "prepare": "nuxt prepare",

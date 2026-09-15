@@ -1,6 +1,5 @@
 import { Injectable, Logger, type OnModuleDestroy, type OnModuleInit } from '@nestjs/common';
 import { Pool, type QueryResultRow } from 'pg';
-import { attachDatabasePool } from '@vercel/functions';
 
 @Injectable()
 export class DatabaseService implements OnModuleInit, OnModuleDestroy {
@@ -18,7 +17,6 @@ export class DatabaseService implements OnModuleInit, OnModuleDestroy {
       idleTimeoutMillis: 5000,
       statement_timeout: 10000,
     });
-    if (process.env.VERCEL === '1') attachDatabasePool(this.pool);
     this.pool.on('error', () => this.logger.error('PostgreSQL bağlantısı kəsildi.'));
   }
 

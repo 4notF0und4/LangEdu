@@ -30,9 +30,6 @@ Ensiklopediya mənbələri və mündəricatı `app/data/python-reference.ts` fay
 əlavə edəndə ilkin mənbəni yoxla, aid olduğu abzasda istinad göstər və məqalənin
 mənbə yoxlama tarixini yenilə. Bu məqalə dərs API-sindən ayrı redaksiya məzmunudur.
 
-Vercel üçün import ayarları, bulud bazası və deploy ardıcıllığı:
-[Vercel təlimatı](docs/vercel.md).
-
 ## Mərhələ 3: Dərslərin PostgreSQL-də saxlanması
 
 Dərs API-si məzmunu PostgreSQL-dən oxuyur. `Lesson` cavab tipi və Nuxt

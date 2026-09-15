@@ -6,8 +6,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module.js';
 
 async function bootstrap(): Promise<void> {
-  const onVercel = process.env.VERCEL === '1';
-  if (!onVercel && existsSync('.env')) {
+  if (existsSync('.env')) {
     loadEnvFile('.env');
   }
 
@@ -16,32 +15,23 @@ async function bootstrap(): Promise<void> {
     throw new Error('PORT 1–65535 aralığında tam ədəd olmalıdır.');
   }
 
-  if (onVercel && !process.env.WEB_ORIGIN) {
-    throw new Error('Vercel-də WEB_ORIGIN frontend-in HTTPS ünvanı olmalıdır.');
-  }
   const origins = (process.env.WEB_ORIGIN ?? 'http://localhost:3000')
     .split(',').map((origin) => origin.trim()).filter(Boolean);
   if (!origins.length || origins.some((origin) => {
     try {
       const url = new URL(origin);
-      return url.origin !== origin || !['http:', 'https:'].includes(url.protocol)
-        || (onVercel && url.protocol !== 'https:');
+      return url.origin !== origin || !['http:', 'https:'].includes(url.protocol);
     } catch { return true; }
   })) {
-    throw new Error('WEB_ORIGIN vergüllə ayrılmış origin-lər olmalıdır; yol və son slash yazma. Vercel-də HTTPS tələb olunur.');
+    throw new Error('WEB_ORIGIN vergüllə ayrılmış HTTP/HTTPS origin-lər olmalıdır; yol və son slash yazma.');
   }
 
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('api');
   app.enableCors({ origin: origins });
-  if (!onVercel) app.enableShutdownHooks();
-
-  if (onVercel) {
-    await app.listen(port);
-  } else {
-    await app.listen(port, process.env.HOST ?? '127.0.0.1');
-    Logger.log(`API hazırdır: http://localhost:${port}/api/health`, 'Bootstrap');
-  }
+  app.enableShutdownHooks();
+  await app.listen(port, process.env.HOST ?? '127.0.0.1');
+  Logger.log(`API hazırdır: http://localhost:${port}/api/health`, 'Bootstrap');
 }
 
 bootstrap().catch((error: unknown) => {
