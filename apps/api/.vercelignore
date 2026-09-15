@@ -2,5 +2,4 @@
 .env.*
 !.env.example
 dist
-database
 node_modules
