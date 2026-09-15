@@ -1,6 +1,27 @@
 # LangEdu
 
-Python proqramlaşdırmasını öyrədən sayt. Layihəni kiçik mərhələlərlə qururuq.
+Proqramlaşdırma dilləri, framework və kitabxanalar üçün Azərbaycan dilində
+bilik və öyrənmə platforması. İlk işlək texnologiya Python-dur.
+
+## Texnologiya sahələri və yeni dizayn
+
+- `/`: axtarış və növ filtrləri olan texnologiya kataloqu.
+- `/python`: Python sahəsinin icmalı və öyrənmə istiqamətləri.
+- `/python/melumat`: əsas anlayışlar və səhifədaxili naviqasiyalı məlumat kitabçası.
+- `/python/ilk-proqram`: PostgreSQL-dən gələn ilk dərs və kod nümunəsi.
+- `/python/praktika`: hazırlanmaqda olan kod icrası, tapşırıq və quiz imkanları.
+
+`app/app.vue` ümumi başlıq və altlığı, `TechnologyWorkspace.vue` isə texnologiya
+sahəsinin yan menyusunu və bölmə keçidlərini paylaşır. Mobil ekranda bölmə
+keçidləri yan menyunu əvəz edir. `app/data/technologies.ts` kataloqun ad, növ və
+mövcudluq metadatasını saxlayır. Digər texnologiyalar hazır dərs kimi təqdim edilmir.
+
+Bu mərhələ informasiya quruluşunu və interfeysi yeniləyir. Python dərslərinin
+API və baza modeli hələ Python-a aiddir. Yeni texnologiyanın dərslərini əlavə
+edəndə texnologiya identifikatoru və texnologiya daxilində unikal dərs slug-ı üçün
+baza migrasiyası, API və contracts yenilənməlidir. Təkcə kataloqa kart əlavə
+etmək yeni dərs sahəsi yaratmır. Məlumat kitabçası hələ frontend məzmunudur.
+Praktikada kod icrası, avtomatik qiymətləndirmə və quizlər hələ aktiv deyil.
 
 Vercel üçün import ayarları, bulud bazası və deploy ardıcıllığı:
 [Vercel təlimatı](docs/vercel.md).

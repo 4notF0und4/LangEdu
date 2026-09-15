@@ -10,9 +10,9 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'az' },
-      title: 'LangEdu — Python öyrən',
+      title: 'LangEdu — Texnologiyanı anla, kodla öyrən',
       meta: [
-        { name: 'description', content: 'Python proqramlaşdırmasını addım-addım öyrən.' },
+        { name: 'description', content: 'Proqramlaşdırma dilləri, framework və kitabxanalar üçün Azərbaycan dilində bilik və öyrənmə məkanı. Python ilə başla.' },
       ],
     },
   },
