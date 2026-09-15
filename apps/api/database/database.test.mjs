@@ -43,7 +43,8 @@ test('PostgreSQL migrasiya, seed və real NestJS inteqrasiyası', { timeout: 300
     url.searchParams.set('options', `-c search_path=${schema}`);
     api = spawn(process.execPath, ['dist/main.js'], {
       cwd: fileURLToPath(new URL('../', import.meta.url)),
-      env: { ...process.env, DATABASE_URL: url.href, PORT: String(port), HOST: '127.0.0.1' },
+      env: { ...process.env, DATABASE_URL: url.href, PORT: String(port), HOST: '127.0.0.1',
+        WEB_ORIGIN: 'https://web.example.com,https://preview.example.com' },
       stdio: 'ignore', windowsHide: true,
     });
     let spawnError;
@@ -58,6 +59,15 @@ test('PostgreSQL migrasiya, seed və real NestJS inteqrasiyası', { timeout: 300
       await new Promise((resolve) => setTimeout(resolve, 100));
     }
     assert.ok(ready, 'Test API başlamalıdır');
+
+    await t.test('CORS yalnız konfiqurasiyadakı frontend origin-lərinə icazə verir', async () => {
+      for (const origin of ['https://web.example.com', 'https://preview.example.com']) {
+        const response = await fetch(`${base}/health`, { headers: { Origin: origin } });
+        assert.equal(response.headers.get('access-control-allow-origin'), origin);
+      }
+      const response = await fetch(`${base}/health`, { headers: { Origin: 'https://unknown.example.com' } });
+      assert.equal(response.headers.get('access-control-allow-origin'), null);
+    });
 
     await t.test('API bazadakı redaktəni və bölmələrin sırasını qaytarır', async () => {
       const response = await fetch(`${base}/lessons/ilk-proqram`);

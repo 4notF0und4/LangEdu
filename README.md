@@ -2,6 +2,9 @@
 
 Python proqramlaşdırmasını öyrədən sayt. Layihəni kiçik mərhələlərlə qururuq.
 
+Vercel üçün import ayarları, bulud bazası və deploy ardıcıllığı:
+[Vercel təlimatı](docs/vercel.md).
+
 ## Mərhələ 3: Dərslərin PostgreSQL-də saxlanması
 
 Dərs API-si məzmunu PostgreSQL-dən oxuyur. `Lesson` cavab tipi və Nuxt
