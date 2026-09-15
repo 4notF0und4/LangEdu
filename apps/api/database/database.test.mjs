@@ -60,6 +60,13 @@ test('PostgreSQL migrasiya, seed və real NestJS inteqrasiyası', { timeout: 300
     }
     assert.ok(ready, 'Test API başlamalıdır');
 
+    await t.test('Readiness bazanı yoxlayır və bağlantı məlumatını açıqlamır', async () => {
+      const response = await fetch(`${base}/health/ready`);
+      assert.equal(response.status, 200);
+      assert.equal(response.headers.get('cache-control'), 'no-store');
+      assert.deepEqual(await response.json(), { status: 'ok', database: 'ok' });
+    });
+
     await t.test('CORS yalnız konfiqurasiyadakı frontend origin-lərinə icazə verir', async () => {
       for (const origin of ['https://web.example.com', 'https://preview.example.com']) {
         const response = await fetch(`${base}/health`, { headers: { Origin: origin } });
@@ -89,6 +96,10 @@ test('PostgreSQL migrasiya, seed və real NestJS inteqrasiyası', { timeout: 300
       await client.query('ALTER TABLE lessons RENAME TO lessons_unavailable');
       try {
         assert.equal((await fetch(`${base}/lessons/ilk-proqram`)).status, 503);
+        const response = await fetch(`${base}/health/ready`);
+        assert.equal(response.status, 503);
+        const body = await response.text();
+        for (const secret of [url.password, url.username].filter(Boolean)) assert.ok(!body.includes(secret));
       } finally {
         await client.query('ALTER TABLE lessons_unavailable RENAME TO lessons');
       }

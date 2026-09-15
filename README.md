@@ -1,5 +1,8 @@
 # LangEdu
 
+Vercel üçün frontend → backend API → PostgreSQL quruluşu və dəqiq deploy
+addımları: [Deploy təlimatı](docs/vercel.md).
+
 Proqramlaşdırma dilləri, framework və kitabxanalar üçün Azərbaycan dilində
 bilik və öyrənmə platforması. İlk işlək texnologiya Python-dur.
 
