@@ -19,7 +19,7 @@ useHead({ title: () => lesson.value && status.value === 'success' ? `${lesson.va
   <div class="page-shell">
     <header class="site-header">
       <NuxtLink class="brand" to="/" aria-label="LangEdu ana səhifə">
-        <span class="brand-mark" aria-hidden="true">L.</span> LangEdu
+        <span class="brand-mark" aria-hidden="true">L</span> LangEdu
       </NuxtLink>
       <span class="language-label">Python · Başlanğıc</span>
     </header>

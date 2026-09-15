@@ -19,7 +19,7 @@ const isHealthy = computed(() => status.value === 'success' && data.value?.statu
   <div class="page-shell">
     <header class="site-header">
       <a class="brand" href="/" aria-label="LangEdu ana səhifə">
-        <span class="brand-mark" aria-hidden="true">L.</span>
+        <span class="brand-mark" aria-hidden="true">L</span>
         LangEdu
       </a>
       <span class="language-label">İlk dilimiz: Python</span>
