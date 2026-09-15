@@ -41,9 +41,19 @@ test('PostgreSQL migrasiya, seed və real NestJS inteqrasiyası', { timeout: 300
     const port = reservation.address().port;
     await new Promise((resolve, reject) => reservation.close((error) => error ? reject(error) : resolve()));
     url.searchParams.set('options', `-c search_path=${schema}`);
-    api = spawn(process.execPath, ['dist/main.js'], {
+    // On Vercel the platform serves the exported handler. This harness does
+    // the same locally while deliberately supplying a non-TCP PORT value.
+    const onVercel = process.env.VERCEL === '1';
+    const args = onVercel ? ['--input-type=module', '-e', `
+      import handler from './dist/main.js';
+      import { createServer } from 'node:http';
+      if (typeof handler !== 'function') throw new Error('Missing HTTP handler export');
+      createServer(handler).listen(Number(process.env.TEST_API_PORT), '127.0.0.1');
+    `] : ['dist/main.js'];
+    api = spawn(process.execPath, args, {
       cwd: fileURLToPath(new URL('../', import.meta.url)),
-      env: { ...process.env, DATABASE_URL: url.href, PORT: String(port), HOST: '127.0.0.1',
+      env: { ...process.env, DATABASE_URL: url.href, PORT: onVercel ? '/tmp/vercel-test.sock' : String(port),
+        TEST_API_PORT: String(port), HOST: '127.0.0.1',
         WEB_ORIGIN: 'https://web.example.com,https://preview.example.com' },
       stdio: 'ignore', windowsHide: true,
     });

@@ -46,6 +46,12 @@ Build Step** seçimini aktiv saxla. Kök `package-lock.json` və
 qovluğunu statik output kimi seçmə; Vercel `src/main.ts` girişini aşkarlayır.
 `vercel.json` faylları framework və build/install ayarlarını repoda saxlayır.
 
+Vercel-də `src/main.ts` Nest tətbiqini `app.init()` ilə hazırlayır və onun
+Express HTTP handler-ini default export edir. Portu platforma idarə edir;
+lokal `PORT` yoxlaması Vercel-də tətbiq olunmur. Lokal rejimdə isə əvvəlki
+kimi `app.listen()` istifadə edilir. Vercel Environment Variables bölməsində
+əl ilə əlavə edilmiş `PORT` və `HOST` dəyərlərini silmək olar.
+
 ## Mühit dəyişənləri
 
 Ünvanlar nümunədir; Vercel-də layihəyə faktiki verilmiş ünvanlarla əvəz et.
