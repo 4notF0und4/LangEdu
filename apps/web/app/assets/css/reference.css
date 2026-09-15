@@ -1,0 +1,207 @@
+/* Mənbəli ensiklopedik məqalə */
+.encyclopedia-layout {
+  grid-template-columns: minmax(0, 1fr) 180px;
+  gap: 32px;
+}
+.encyclopedia {
+  min-width: 0;
+}
+.encyclopedia a:not(.primary-button) {
+  color: var(--green);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--border);
+  overflow-wrap: anywhere;
+}
+.encyclopedia a:hover {
+  text-decoration-color: currentColor;
+}
+.encyclopedia section {
+  scroll-margin-top: 25px;
+}
+.encyclopedia section + section {
+  border-top: 1px solid var(--border);
+  padding-top: 32px;
+}
+.article-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  padding: 14px 0;
+  border-block: 1px solid var(--border);
+  font-size: 10px;
+  color: var(--muted);
+}
+.encyclopedia .reading-guide {
+  font-size: 12px;
+  margin-top: 18px;
+  color: var(--muted);
+}
+.encyclopedia-facts {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 22px;
+  border-radius: 7px;
+}
+.encyclopedia-facts > div {
+  display: grid;
+  grid-template-columns: 145px minmax(0, 1fr);
+  gap: 15px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.encyclopedia-facts > div:last-child {
+  border: 0;
+}
+.encyclopedia-facts dt {
+  color: var(--muted);
+}
+.encyclopedia-facts dd {
+  margin: 0;
+}
+.source-citation {
+  font-size: 10px;
+  line-height: 0;
+  margin-left: 4px;
+  white-space: nowrap;
+}
+.encyclopedia .source-citation a {
+  text-decoration: none;
+  padding: 3px 1px;
+}
+.history-timeline {
+  list-style: none;
+  padding-left: 22px;
+  border-left: 2px solid var(--border);
+}
+.history-timeline li {
+  position: relative;
+  padding-bottom: 18px;
+}
+.history-timeline li::before {
+  content: "";
+  position: absolute;
+  left: -28px;
+  top: 9px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 2px solid var(--border);
+}
+.history-timeline strong {
+  font-size: 14px;
+}
+.history-timeline p {
+  margin: 7px 0 0;
+}
+.reference-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+.reference-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: left;
+}
+.reference-table caption {
+  text-align: left;
+  padding: 12px 15px;
+  font-weight: 600;
+  background: var(--surface);
+}
+.reference-table th,
+.reference-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+.reference-table thead {
+  background: var(--surface);
+}
+.reference-table th {
+  font-weight: 600;
+}
+.reference-table code {
+  white-space: nowrap;
+}
+.encyclopedia-list {
+  padding-left: 22px;
+  color: var(--muted);
+  font-size: 15px;
+}
+.encyclopedia-list li {
+  padding: 8px 0;
+}
+.encyclopedia-list strong {
+  color: var(--text);
+}
+.reference-bibliography ol {
+  padding-left: 24px;
+}
+.reference-bibliography li {
+  padding: 10px 8px;
+  font-size: 13px;
+  scroll-margin-top: 35px;
+  border-bottom: 1px solid var(--border);
+}
+.reference-bibliography li::marker {
+  color: var(--muted);
+}
+.reference-bibliography li span {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 3px;
+}
+.reference-bibliography li:target {
+  background: var(--surface);
+  outline: 1px solid var(--border);
+  border-radius: 4px;
+}
+.encyclopedia-layout .article-toc {
+  max-height: calc(100svh - 50px);
+  overflow-y: auto;
+}
+@media (max-width: 1100px) {
+  .encyclopedia-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .encyclopedia-layout .article-toc {
+    max-height: none;
+  }
+  .encyclopedia-layout .article-toc nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 16px;
+  }
+  .encyclopedia-layout .article-toc .menu-label {
+    width: 100%;
+  }
+  .encyclopedia-layout .article-toc a {
+    margin: 0;
+  }
+}
+@media (max-width: 600px) {
+  .encyclopedia-facts {
+    padding-inline: 15px;
+  }
+  .encyclopedia-facts > div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .encyclopedia-facts dt {
+    font-size: 11px;
+  }
+  .reference-table th,
+  .reference-table td {
+    padding: 10px;
+  }
+  .encyclopedia h2 {
+    font-size: 23px;
+  }
+}

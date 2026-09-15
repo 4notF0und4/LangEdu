@@ -5,6 +5,19 @@ bilik və öyrənmə platforması. İlk işlək texnologiya Python-dur.
 
 ## Texnologiya sahələri və yeni dizayn
 
+Ümumi başlıq, loqo və altlıq `AppHeader`, `AppBrand`, `AppFooter` komponentlərində,
+kod nümunəsinin çərçivəsi isə `CodePanel` komponentində saxlanır.
+`assets/css/main.css` stillərin giriş faylıdır: `tokens.css` rəng və dizayn
+dəyişənlərini, `base.css` baza qaydalarını, `ui.css` ortaq interfeys elementlərini
+saxlayır. Kataloq, texnologiya sahəsi, ensiklopediya və mobil qaydalar ayrıca
+fayllara bölünüb. Yeni rəng əlavə edərkən birbaşa səhifəyə rəng kodu yazmaq
+əvəzinə, işıqlı və qaranlıq palitralarda uyğun dəyişən təyin et.
+
+Başlıqdakı **Görünüş** seçicisi **Sistem / İşıqlı / Qaranlıq** rejimlərini təqdim
+edir. `useTheme` seçimi bir il müddətli `langedu-theme` cookie-sində saxlayır;
+server ilk HTML cavabında rejimi tətbiq edir. Sistem seçimi CSS media sorğusu
+ilə əməliyyat sistemini izləyir. Etibarsız cookie dəyəri sistem rejiminə düşür.
+
 - `/`: axtarış və növ filtrləri olan texnologiya kataloqu.
 - `/python`: Python sahəsinin icmalı və öyrənmə istiqamətləri.
 - `/python/melumat`: tarixçə, nəzəriyyə, ekosistem və rəsmi mənbələrə istinadlarla

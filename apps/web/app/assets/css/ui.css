@@ -1,0 +1,110 @@
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 2px;
+  color: var(--green);
+  margin-bottom: 23px;
+}
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  background: var(--action);
+  color: var(--on-action);
+  padding: 13px 21px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1px solid var(--action);
+}
+.primary-button:hover {
+  background: var(--action-hover);
+}
+.tech-mark {
+  display: grid;
+  place-items: center;
+  width: 45px;
+  height: 45px;
+  flex-shrink: 0;
+  background: var(--surface);
+  color: var(--green);
+  border-radius: 9px;
+  font-weight: 750;
+  font-size: 21px;
+  letter-spacing: -1px;
+}
+.availability {
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: var(--surface);
+  color: var(--muted);
+  white-space: nowrap;
+}
+.text-link {
+  font-size: 13px;
+  font-weight: 650;
+  color: var(--green);
+}
+.lead {
+  font-size: 16px;
+  max-width: 610px;
+  line-height: 1.9;
+  margin-bottom: 25px;
+}
+.info-note {
+  margin-top: 30px;
+  padding: 23px;
+  border-left: 3px solid var(--border);
+  background: var(--surface);
+  font-size: 13px;
+  color: var(--muted);
+}
+.info-note h2 {
+  font-size: 21px;
+}
+.info-note p {
+  color: inherit;
+}
+.code-panel {
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  overflow: hidden;
+}
+.code-toolbar {
+  display: flex;
+  justify-content: space-between;
+  background: var(--surface);
+  padding: 10px 17px;
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: var(--muted);
+}
+pre {
+  margin: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 23px;
+  color: var(--green);
+  overflow-x: auto;
+  font-size: 14px;
+  line-height: 1.8;
+}
+code {
+  font-family: Consolas, "Courier New", monospace;
+}
+.code-panel pre {
+  border: 0;
+  border-radius: 0;
+}
+.response-label {
+  font-size: 10px !important;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 20px 0 8px;
+}

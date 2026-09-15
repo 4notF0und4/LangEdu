@@ -4,6 +4,8 @@ test("Ensiklopediya mündəricatı, mənbə istinadları və ad keçidləri işl
   page,
 }) => {
   await page.goto("/python/melumat");
+  expect(await page.locator('#sintaksis pre code').textContent()).toBe('ad = "Aysel"\nif ad:\n    print(f"Salam, {ad}!")');
+  expect(await page.locator('#idarəetmə pre code').textContent()).toBe('def kvadrat(eded):\n    return eded * eded\n\nfor eded in range(1, 4):\n    print(kvadrat(eded))');
   const toc = page.getByRole("navigation", { name: "Məqalənin mündəricatı" });
   await toc.getByRole("link", { name: "Yaranması və müəllifi" }).click();
   await expect(page).toHaveURL(/#tarixce$/);

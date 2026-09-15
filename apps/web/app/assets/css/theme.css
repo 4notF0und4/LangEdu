@@ -1,0 +1,41 @@
+﻿.theme-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+.theme-picker select {
+  font: inherit;
+  color: var(--text);
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 7px 9px;
+  max-width: 135px;
+  cursor: pointer;
+}
+.theme-picker select:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.header-inner {
+  max-width: var(--content-width);
+  gap: 30px;
+  flex-wrap: wrap;
+}
+@media (max-width: 760px) {
+  .theme-picker {
+    margin-left: auto;
+  }
+  .theme-picker span {
+    display: none;
+  }
+  .header-inner {
+    gap: 12px 20px;
+  }
+  .theme-picker select {
+    max-width: 105px;
+  }
+}

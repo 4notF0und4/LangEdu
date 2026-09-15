@@ -238,14 +238,10 @@ useHead({
               source="control"
             />
           </p>
-          <div class="code-panel">
-            <div class="code-toolbar">
-              <span>PYTHON 3</span><span>Şərt və mətn</span>
-            </div>
-            <pre><code>ad = "Aysel"
-if ad:
-    print(f"Salam, {ad}!")</code></pre>
-          </div>
+          <CodePanel
+            label="Şərt və mətn"
+            :code="'ad = &quot;Aysel&quot;\nif ad:\n    print(f&quot;Salam, {ad}!&quot;)'"
+          />
           <p>
             Burada <code>ad</code> adı mətn obyektinə bağlanır. Boş olmayan mətn
             şərtdə doğru sayıldığı üçün proqram
@@ -379,16 +375,10 @@ if ad:
             parametrlər giriş məlumatını, <code>return</code> nəticəni ifadə
             edir.<PythonCitation source="control" />
           </p>
-          <div class="code-panel">
-            <div class="code-toolbar">
-              <span>PYTHON 3</span><span>Funksiya və dövr</span>
-            </div>
-            <pre><code>def kvadrat(eded):
-    return eded * eded
-
-for eded in range(1, 4):
-    print(kvadrat(eded))</code></pre>
-          </div>
+          <CodePanel
+            label="Funksiya və dövr"
+            :code="'def kvadrat(eded):\n    return eded * eded\n\nfor eded in range(1, 4):\n    print(kvadrat(eded))'"
+          />
           <p>
             Nəticə ayrı sətirlərdə <code>1</code>, <code>4</code> və
             <code>9</code> olur. <code>range(1, 4)</code> son sərhəd olan 4-ü

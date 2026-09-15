@@ -1,0 +1,241 @@
+@media (min-width: 1600px) {
+  .catalog-hero {
+    padding-top: 95px;
+    padding-bottom: 85px;
+  }
+}
+@media (max-width: 1100px) {
+  .catalog-hero {
+    gap: 35px;
+  }
+  .workspace {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+  .workspace-content {
+    padding: 35px 25px 50px;
+  }
+  .workspace-topline {
+    padding-inline: 25px;
+  }
+  .section-tabs {
+    padding-inline: 25px;
+  }
+  .study-sidebar {
+    padding-left: 20px;
+  }
+  .topic-monogram {
+    width: 110px;
+    height: 110px;
+    font-size: 58px;
+  }
+  .path-grid,
+  .practice-grid {
+    grid-template-columns: 1fr;
+  }
+  .path-card {
+    padding: 20px;
+  }
+  .path-number {
+    margin-bottom: 12px;
+  }
+  .reference-layout {
+    grid-template-columns: 1fr;
+  }
+  .article-toc {
+    position: static;
+    grid-row: 1;
+    border-left: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 0 0 15px;
+  }
+  .article-toc a {
+    display: inline-block;
+    margin-right: 15px;
+  }
+  .header-inner {
+    padding-inline: 30px;
+    gap: 35px;
+  }
+}
+@media (max-width: 760px) {
+  h1 {
+    letter-spacing: -1.5px;
+  }
+  .header-inner {
+    padding: 16px 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .brand {
+    font-size: 20px;
+  }
+  .header-note {
+    display: none;
+  }
+  .primary-nav {
+    margin-left: auto;
+    gap: 16px;
+    font-size: 11px;
+  }
+  .catalog-page {
+    padding: 0 20px;
+  }
+  .catalog-hero {
+    grid-template-columns: 1fr;
+    padding: 45px 0;
+    gap: 32px;
+  }
+  .hero-description {
+    font-size: 15px;
+  }
+  .editorial-panel {
+    padding: 20px 25px;
+  }
+  .map-step {
+    padding: 15px 0;
+  }
+  .technology-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .section-heading {
+    display: block;
+  }
+  .section-heading > p {
+    margin-top: 15px;
+  }
+  .section-heading h2 {
+    font-size: 27px;
+  }
+  .catalog-toolbar {
+    flex-direction: column;
+  }
+  .search-field input {
+    width: 100%;
+  }
+  .search-field {
+    width: 100%;
+  }
+  .learning-note {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+  .learning-note > div {
+    flex: 1;
+  }
+  .learning-note .text-link {
+    margin-left: 0;
+    width: 100%;
+  }
+  .site-footer {
+    margin: 0 20px;
+    padding: 25px 0;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+  }
+  .site-footer span:last-child {
+    margin-left: 0;
+    width: 100%;
+  }
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+  .study-sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+    padding: 18px 20px;
+  }
+  .study-sidebar > .back-link {
+    margin-bottom: 15px;
+  }
+  .sidebar-identity {
+    margin-bottom: 0;
+  }
+  .study-sidebar > .menu-label,
+  .study-sidebar > .study-nav,
+  .sidebar-hint,
+  .sidebar-note {
+    display: none;
+  }
+  .workspace-topline {
+    padding: 15px 20px;
+  }
+  .edition {
+    display: none;
+  }
+  .section-tabs {
+    padding: 0 20px;
+    gap: 25px;
+    overflow-x: auto;
+  }
+  .section-tabs a {
+    white-space: nowrap;
+  }
+  .workspace-content {
+    padding: 30px 20px 45px;
+  }
+  .topic-hero {
+    gap: 15px;
+  }
+  .topic-monogram {
+    display: none;
+  }
+  .topic-facts {
+    gap: 12px;
+  }
+  .topic-facts strong {
+    font-size: 10px;
+  }
+  .workspace-content h1 {
+    font-size: 38px;
+  }
+  .lead {
+    font-size: 15px;
+  }
+  .path-grid,
+  .practice-grid {
+    grid-template-columns: 1fr;
+  }
+  .reference-layout {
+    gap: 25px;
+  }
+  .technology-card {
+    padding: 20px;
+  }
+  .card-top {
+    flex-wrap: wrap;
+  }
+  .availability {
+    font-size: 9px;
+  }
+  .technology-card h3 {
+    font-size: 22px;
+  }
+}
+@media (max-width: 420px) {
+  .technology-grid {
+    grid-template-columns: 1fr;
+  }
+  .primary-nav {
+    gap: 12px;
+    font-size: 10px;
+  }
+  .brand {
+    font-size: 18px;
+  }
+  .brand-mark {
+    width: 29px;
+    height: 31px;
+  }
+  .header-inner {
+    gap: 12px;
+  }
+  .filter-group button {
+    padding: 8px 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  a,
+  button {
+    transition: none;
+  }
+}
